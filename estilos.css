@@ -74,3 +74,6 @@ h1 {
   50% { transform: scale(1.5) translateY(-10px); opacity: 1; }
   100% { transform: scale(0.5) translateY(-20px); opacity: 0; }
 }
+.sparkle.gold { background: gold; }
+.sparkle.pink { background: #ff80b3; }
+.sparkle.blue { background: #80dfff; }
