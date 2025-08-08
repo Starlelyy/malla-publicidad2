@@ -1,14 +1,19 @@
 body {
   font-family: 'Pangolin', cursive, sans-serif;
-  background-color: #fbeaea;
-  color: #333;
+  background-color: #fff3bf; /* amarillo pastel suave */
+  color: #5c3a21; /* marrón chocolate suave */
   margin: 0;
   padding: 20px;
+  position: relative; /* para el pompompurín absoluto */
+  min-height: 100vh;
 }
 
 h1 {
   text-align: center;
-  color: #a33d3d;
+  color: #f7b801; /* amarillo vivo pompopurinesco */
+  text-shadow: 1px 1px 3px #fceabb;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
 }
 
 .grid {
@@ -20,53 +25,65 @@ h1 {
 .card {
   position: relative;
   overflow: hidden;
-  background-color: #ffe5e5;
-  border: 2px solid #cc6b6b;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fff8dc; /* beige muy claro */
+  border: 2px solid #f7d07a; /* amarillo claro */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(247, 176, 1, 0.3);
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(247, 176, 1, 0.6);
 }
 
 .card h2 {
   margin-top: 0;
-  color: #992929;
-  font-size: 18px;
+  color: #a7792a; /* marrón dorado */
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 1px #fff9e1;
 }
 
 .card select {
   width: 100%;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #b55e5e;
-  background-color: #fff0f0;
-  color: #992929;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid #f7d07a;
+  background-color: #fffbea;
+  color: #a7792a;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card select:hover {
+  background-color: #fff3bf;
 }
 
 .card.locked {
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
-  background-color: #f8d2d2;
+  background-color: #fff0cc;
+  border-color: #f2c94c;
 }
 
 .card.unlocked {
   opacity: 1;
-  background-color: #ffe5e5;
+  background-color: #fffbea;
 }
 
 .sparkle {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: gold;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   animation: sparkleAnim 1s ease-out forwards;
   pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
 }
 
 @keyframes sparkleAnim {
@@ -74,6 +91,27 @@ h1 {
   50% { transform: scale(1.5) translateY(-10px); opacity: 1; }
   100% { transform: scale(0.5) translateY(-20px); opacity: 0; }
 }
-.sparkle.gold { background: gold; }
-.sparkle.pink { background: #ff80b3; }
-.sparkle.blue { background: #80dfff; }
+
+.sparkle.gold { background: #f7b801; filter: drop-shadow(0 0 3px #f7b801); }
+.sparkle.pink { background: #ff80b3; filter: drop-shadow(0 0 3px #ff80b3); }
+.sparkle.blue { background: #80dfff; filter: drop-shadow(0 0 3px #80dfff); }
+
+/* PomPomPurín en la esquina derecha inferior */
+.pompompurin {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 120px;
+  height: 120px;
+  background-image: url('https://i.imgur.com/yS9cW1v.png'); /* imagen PomPomPurín */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 9999;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease;
+}
+.pompompurin:hover {
+  transform: scale(1.1);
+}
