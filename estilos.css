@@ -96,14 +96,14 @@ h1 {
 .sparkle.pink { background: #ff80b3; filter: drop-shadow(0 0 3px #ff80b3); }
 .sparkle.blue { background: #80dfff; filter: drop-shadow(0 0 3px #80dfff); }
 
-/* PomPomPurín en la esquina derecha inferior */
+/* PomPomPurín en la esquina derecha inferior con nueva imagen */
 .pompompurin {
   position: fixed;
   bottom: 15px;
   right: 15px;
   width: 120px;
   height: 120px;
-  background-image: url('https://i.imgur.com/yS9cW1v.png'); /* imagen PomPomPurín */
+  background-image: url('https://i.pinimg.com/736x/70/02/fd/7002fdff2e75a29c74d12ce750fb6469.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
