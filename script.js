@@ -109,3 +109,27 @@ function verificarDesbloqueo() {
 materias.forEach((m, i) => crearMateria(m, i));
 cargarEstado();
 verificarDesbloqueo();
+function mostrarBrillitos(x, y) {
+  for (let i = 0; i < 6; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${x + (Math.random() * 40 - 20)}px`;
+    sparkle.style.top = `${y + (Math.random() * 40 - 20)}px`;
+    document.body.appendChild(sparkle);
+
+    // Elimina el brillo después de la animación
+    setTimeout(() => sparkle.remove(), 1000);
+  }
+}
+
+// Ejemplo: si tienes algo como un event listener para marcar materias
+document.querySelectorAll(".materia").forEach(materia => {
+  materia.addEventListener("click", e => {
+    materia.classList.toggle("aprobada");
+
+    if (materia.classList.contains("aprobada")) {
+      const rect = materia.getBoundingClientRect();
+      mostrarBrillitos(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }
+  });
+});
