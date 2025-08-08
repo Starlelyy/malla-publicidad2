@@ -113,9 +113,10 @@ function verificarDesbloqueo() {
 }
 
 function lanzarBrillitos(elemento) {
+  const colores = ["gold", "pink", "blue"];
   for (let i = 0; i < 15; i++) {
     const sparkle = document.createElement("span");
-    sparkle.className = "sparkle";
+    sparkle.className = "sparkle " + colores[Math.floor(Math.random() * colores.length)];
     sparkle.style.left = `${Math.random() * 100}%`;
     sparkle.style.top = `${Math.random() * 100}%`;
     sparkle.style.animationDelay = `${Math.random() * 0.5}s`;
