@@ -17,18 +17,20 @@ h1 {
   gap: 1rem;
 }
 
-
 .card {
+  position: relative;
+  overflow: hidden;
   background-color: #ffe5e5;
   border: 2px solid #cc6b6b;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
   transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .card h2 {
@@ -51,9 +53,10 @@ h1 {
   pointer-events: none;
   background-color: #f8d2d2;
 }
-.card {
-  position: relative;
-  overflow: hidden;
+
+.card.unlocked {
+  opacity: 1;
+  background-color: #ffe5e5;
 }
 
 .sparkle {
