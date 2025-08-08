@@ -51,32 +51,23 @@ h1 {
   pointer-events: none;
   background-color: #f8d2d2;
 }
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
 .sparkle {
   position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  animation: sparkleAnim 1s ease-out forwards;
   pointer-events: none;
-  width: 20px;
-  height: 20px;
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
-  animation: sparkle 1s ease-out forwards;
-  opacity: 0.8;
 }
 
-@keyframes sparkle {
-  0% {
-    transform: scale(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.2) rotate(180deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.card.unlocked {
-  opacity: 1;
-  pointer-events: auto;
+@keyframes sparkleAnim {
+  0% { transform: scale(0.5) translateY(0); opacity: 1; }
+  50% { transform: scale(1.5) translateY(-10px); opacity: 1; }
+  100% { transform: scale(0.5) translateY(-20px); opacity: 0; }
 }
