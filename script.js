@@ -31,7 +31,6 @@ const materias = [
   { nombre: "práctica publicitaria", requiere: ["planificación de medios", "organización y administración de la empresa publicitaria", "medios de comunicación publicitaria"], tipo: ["regularizada", "regularizada", "aprobada"] },
   { nombre: "creatividad en publicidad", requiere: ["diseño multimedial", "Producción audiovisual"], tipo: ["regularizada", "aprobada"] },
 ];
-
 const grid = document.querySelector(".grid");
 
 function crearMateria(materia, index) {
@@ -46,10 +45,17 @@ function crearMateria(materia, index) {
       <option value="aprobada">Aprobada</option>
     </select>
   `;
-  div.querySelector("select").addEventListener("change", () => {
+
+  div.querySelector("select").addEventListener("change", (e) => {
+    const valor = e.target.value;
     guardarEstado();
     verificarDesbloqueo();
+
+    if (valor === "aprobada") {
+      lanzarBrillitos(div);
+    }
   });
+
   grid.appendChild(div);
 }
 
@@ -106,30 +112,19 @@ function verificarDesbloqueo() {
   });
 }
 
-materias.forEach((m, i) => crearMateria(m, i));
-cargarEstado();
-verificarDesbloqueo();
-function mostrarBrillitos(x, y) {
-  for (let i = 0; i < 6; i++) {
-    const sparkle = document.createElement("div");
+function lanzarBrillitos(elemento) {
+  for (let i = 0; i < 15; i++) {
+    const sparkle = document.createElement("span");
     sparkle.className = "sparkle";
-    sparkle.style.left = `${x + (Math.random() * 40 - 20)}px`;
-    sparkle.style.top = `${y + (Math.random() * 40 - 20)}px`;
-    document.body.appendChild(sparkle);
+    sparkle.style.left = `${Math.random() * 100}%`;
+    sparkle.style.top = `${Math.random() * 100}%`;
+    sparkle.style.animationDelay = `${Math.random() * 0.5}s`;
+    elemento.appendChild(sparkle);
 
-    // Elimina el brillo después de la animación
     setTimeout(() => sparkle.remove(), 1000);
   }
 }
 
-// Ejemplo: si tienes algo como un event listener para marcar materias
-document.querySelectorAll(".materia").forEach(materia => {
-  materia.addEventListener("click", e => {
-    materia.classList.toggle("aprobada");
-
-    if (materia.classList.contains("aprobada")) {
-      const rect = materia.getBoundingClientRect();
-      mostrarBrillitos(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    }
-  });
-});
+materias.forEach((m, i) => crearMateria(m, i));
+cargarEstado();
+verificarDesbloqueo();
